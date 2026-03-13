@@ -1,0 +1,331 @@
+/* Google Fonts - Noto Serif SC */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    font-family: 'Noto Serif SC', STSong, SimSun, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-white text-black antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-black text-white;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-spin {
+    animation: spin 0.8s linear infinite;
+  }
+  
+  .animate-blink {
+    animation: blink 1.2s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.15s ease-out;
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0.6;
+      transform: translateX(12%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0.6;
+      transform: translateX(-12%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInFromRight 0.2s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.2s ease-out;
+  }
+
+  @keyframes nudgeRight {
+    0%, 100% { transform: translateX(0); opacity: 0.7; }
+    50% { transform: translateX(4px); opacity: 1; }
+  }
+  .animate-nudge-right {
+    animation: nudgeRight 2s ease-in-out infinite;
+  }
+  
+  /* Typography Utilities */
+  .prose-serif {
+    font-family: 'Noto Serif SC', STSong, SimSun, serif;
+  }
+  
+  /* Border Utilities */
+  .border-thin {
+    border-width: 0.5px;
+  }
+  
+  /* Mobile / Safe Area */
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Markdown Content Styling - Monochrome */
+.markdown-content,
+.message-markdown,
+.profile-content {
+  @apply leading-relaxed text-black;
+  font-family: 'Noto Serif SC', STSong, SimSun, serif;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6,
+.message-markdown h1,
+.message-markdown h2,
+.message-markdown h3,
+.message-markdown h4,
+.message-markdown h5,
+.message-markdown h6,
+.profile-content h1,
+.profile-content h2,
+.profile-content h3,
+.profile-content h4,
+.profile-content h5,
+.profile-content h6 {
+  @apply font-bold text-black;
+  font-family: 'Noto Serif SC', STSong, SimSun, serif;
+}
+
+.markdown-content h1,
+.message-markdown h1,
+.profile-content h1 {
+  @apply text-2xl border-b border-black pb-2 mt-8 mb-4;
+}
+
+.markdown-content h2,
+.message-markdown h2,
+.profile-content h2 {
+  @apply text-xl border-b border-gray-200 pb-1 mt-6 mb-3;
+}
+
+.markdown-content h3,
+.message-markdown h3,
+.profile-content h3 {
+  @apply text-lg mt-4 mb-2;
+}
+
+.markdown-content h4,
+.message-markdown h4,
+.profile-content h4 {
+  @apply text-base mt-3 mb-2;
+}
+
+.markdown-content p,
+.message-markdown p,
+.profile-content p {
+  @apply mb-4;
+}
+
+.markdown-content p:last-child,
+.message-markdown p:last-child,
+.profile-content p:last-child {
+  @apply mb-0;
+}
+
+.markdown-content ul,
+.markdown-content ol,
+.message-markdown ul,
+.message-markdown ol,
+.profile-content ul,
+.profile-content ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-content li,
+.message-markdown li,
+.profile-content li {
+  @apply mb-2;
+}
+
+.markdown-content a,
+.message-markdown a,
+.profile-content a {
+  @apply text-black underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.markdown-content a:hover,
+.message-markdown a:hover,
+.profile-content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.markdown-content code,
+.message-markdown code,
+.profile-content code {
+  @apply bg-gray-100 px-1 py-0.5 text-sm;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.markdown-content pre,
+.message-markdown pre,
+.profile-content pre {
+  @apply bg-gray-900 text-white p-4 mb-4 overflow-x-auto;
+}
+
+.markdown-content pre code,
+.message-markdown pre code,
+.profile-content pre code {
+  @apply bg-transparent p-0;
+}
+
+.markdown-content blockquote,
+.message-markdown blockquote,
+.profile-content blockquote {
+  @apply border-l-2 border-black pl-4 my-4 text-gray-600 italic;
+}
+
+.markdown-content hr,
+.message-markdown hr,
+.profile-content hr {
+  @apply border-t border-gray-200 my-8;
+}
+
+.markdown-content table,
+.message-markdown table,
+.profile-content table {
+  @apply w-full border-collapse mb-4 text-sm;
+}
+
+.markdown-content th,
+.markdown-content td,
+.message-markdown th,
+.message-markdown td,
+.profile-content th,
+.profile-content td {
+  @apply border border-gray-200 px-3 py-2 text-left;
+}
+
+.markdown-content th,
+.message-markdown th,
+.profile-content th {
+  @apply bg-gray-50 font-semibold text-black;
+}
+
+.markdown-content td,
+.message-markdown td,
+.profile-content td {
+  @apply text-gray-700;
+}
+
+/* Spinner - Monochrome */
+.spinner {
+  @apply inline-block w-4 h-4 border-2 border-gray-200 border-t-black rounded-full animate-spin;
+}
+
+/* ── 打印/PDF 优化 ───────────────────── */
+@media print {
+  body {
+    font-size: 10pt !important;
+    background: white !important;
+  }
+  .top-nav,
+  .no-print,
+  .pv-bottom-bar,
+  .sci-field-loading,
+  .sci-loading {
+    display: none !important;
+  }
+  .main-content {
+    padding-top: 0 !important;
+  }
+  .pv-page {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .pv-section,
+  .pv-header {
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 12pt;
+  }
+  .pv-capability-grid,
+  .pv-personality-grid {
+    flex-direction: row !important;
+  }
+  .sci-top3 {
+    flex-direction: row !important;
+  }
+  .sci-scatter-svg {
+    max-width: 400px !important;
+  }
+  .pv-radar-svg {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .pv-forum-body {
+    max-height: none !important;
+  }
+  a {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+}
