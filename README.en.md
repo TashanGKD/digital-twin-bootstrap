@@ -1,5 +1,7 @@
-<p align="center">
-  <img src="docs/assets/tashan.svg" alt="Tashan Logo" width="200" />
+﻿<p align="center">
+  <a href="https://tashan.ac.cn/homepage/" target="_blank" rel="noopener noreferrer">
+    <img src="docs/assets/tashan.svg" alt="Tashan Logo" width="200" />
+  </a>
 </p>
 
 <p align="center">
